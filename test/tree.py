@@ -12,7 +12,6 @@ class Tree:
 
 def solution(T):
     paths = find_paths(T, [[]])
-    print(paths)
     longest = max(paths)
     return calc_changes(T, longest)
 
