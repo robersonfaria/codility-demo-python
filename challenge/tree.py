@@ -1,6 +1,4 @@
-############
-#  FINISH  #
-############
+# Find the number of direction changes on the longest path of the binary tree
 
 
 class Tree:

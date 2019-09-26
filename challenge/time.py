@@ -1,3 +1,5 @@
+# Given time in seconds return in the following format <<hours>> h <<minutes>> m <<seconds>> s
+
 def solution(T):
     hour = str(T // 3600)
     minute = str((T % 3600) // 60)

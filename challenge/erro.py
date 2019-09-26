@@ -1,3 +1,7 @@
+# Correct the script to return the dominant character,
+# if there is more than one dominant character return the first considering the alphabet
+
+
 def solution(S):
     occurrences = [0] * 26
 
