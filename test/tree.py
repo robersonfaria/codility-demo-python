@@ -4,7 +4,7 @@
 
 
 class Tree:
-    def __init__(self, x=None, l=None, r=None):
+    def __init__(self, x, l=None, r=None):
         self.x = x
         self.l = l
         self.r = r
@@ -12,26 +12,26 @@ class Tree:
 
 def solution(T):
     paths = find_paths(T, [[]])
+    print(paths)
     longest = max(paths)
     return calc_changes(T, longest)
 
 
 def find_paths(T, paths):
+    l = len(paths)
     if T:
         if T.l and T.r:
-            paths[len(paths) - 1].append(T.x)
-            p = paths[len(paths) - 1].copy()
+            paths[l - 1].append(T.x)
+            p = paths[l - 1].copy()
             paths = find_paths(T.l, paths)
             paths.append(p)
             paths = find_paths(T.r, paths)
             return paths
         if T.l:
-            paths[len(paths) - 1].append(T.x)
+            paths[l - 1].append(T.x)
             return find_paths(T.l, paths)
         if T.r:
-            paths[len(paths) - 1].append(T.x)
-            if T.r.l or T.r.r:
-                paths.append(paths[len(paths) - 1].copy())
+            paths[l - 1].append(T.x)
             return find_paths(T.r, paths)
     paths[len(paths) - 1].append(T.x)
     return paths
@@ -81,8 +81,8 @@ print(solution(X))
 #      3    10     #
 #     /    /  \    #
 #    20   1   15   #
-#   /        /  \  #
-#  6        30   8 #
+#   /  \     /  \  #
+#  6   50   30   8 #
 #            \     #
 #             9    #
 #            /     #
